@@ -2,14 +2,14 @@
 @import "vars";
 @import "fonts";
 @import "reset";
+@import "media";
 
 // Components
-@import "header.html";
-@import "footer.html";
+@import "header";
+@import "footer";
 
 // Pages
-@import "index.html";
-
+@import "index";
 
 html,
 body {
