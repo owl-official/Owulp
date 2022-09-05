@@ -29,20 +29,19 @@ function compileScss() {
                 grid: true,
             })
         )
-        .pipe(dest("app/css"))
+        .pipe(dest("app/src"))
         .pipe(browserSync.stream());
 }
 
 // JavaScript
 function javascriptMinification() {
     return src([
-        "node_modules/jquery/dist/jquery.js",
         "app/javascript/**.js",
-        "!app/javascript/main.min.js",
+        "!app/src/main.min.js",
     ])
         .pipe(concat("main.min.js"))
         .pipe(uglify())
-        .pipe(dest("app/javascript"))
+        .pipe(dest("app/src"))
         .pipe(browserSync.stream());
 }
 
@@ -65,7 +64,6 @@ function imageOptimization() {
 // WatchList
 function watchRunning() {
     watch(["app/scss/**/*.scss"], compileScss);
-    ``;
     watch(
         ["app/javascript/main.js", "!app/javascript/main.min.js"],
         javascriptMinification
